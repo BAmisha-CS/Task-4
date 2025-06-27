@@ -1,0 +1,32 @@
+Document commands or GUI steps used
+
+Windows Firewall
+1. Open Windows Firewall Configuration
+Press Win + R, type wf.msc, press Enter
+
+2. Block Inbound Traffic on Port 23 (Telnet)
+GUI Steps:
+Open wf.msc
+Go to Inbound Rules → New Rule
+Choose Port → TCP → enter 23
+Select Block the connection
+Apply to all profiles
+Name the rule: Block Telnet (Port 23)
+
+3. Test the Block (Locally)
+cmd
+Copy
+Edit
+telnet localhost 23
+Result: "Could not open connection…" confirms port is blocked.
+
+4. Allow SSH on Port 22
+GUI Steps:
+Go to Inbound Rules → New Rule
+Choose Port → TCP → enter 22
+Select Allow the connection
+Name the rule: Allow SSH (Port 22)
+
+5. Remove Rules (GUI)
+Open wf.msc → Inbound Rules
+Find the rule (e.g., "Block Telnet" or "Allow SSH") → Right-click → Delete
